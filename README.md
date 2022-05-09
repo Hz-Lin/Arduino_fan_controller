@@ -6,7 +6,7 @@ The aim of this project is to control several computer fans with Arduino, so tha
 
 Arduino gets temperature data from a temperature sensor and display the information on an OLED screen.
 
-If the temperature is too high, then the Relay Module will be turned on so that the fans start spinning. Whe the temperature drops to a acceptable number, the Relay Module will be turned off so the fans will also stop.
+If the temperature is too high, then the Relay Module will turn the fans on. When the temperature drops to a acceptable number, the Relay Module will turned the fans off.
 
 ## Arduino
 
@@ -44,7 +44,7 @@ It is a temperature and humidity sensor:
 
 It is a 1.3 inch OLED I2C Screen.
 
-- Power supply voltage: from 3.3V ti 5V
+- Power supply voltage: from 3.3V to 5V
 - Communication interface: I2C
 - Pixel Color: White
 - Operation temperature: from -20 to 70 C
