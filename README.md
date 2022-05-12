@@ -65,3 +65,7 @@ However, I choose to use the on/off control, because I don't have a mosfet. I ha
 I used a one channel relay module.
 
 [Interface One Channel Relay Module with Arduino](https://lastminuteengineers.com/one-channel-relay-module-arduino-tutorial/)
+
+## Circuit
+
+![Circuit](circuit.jpg)
