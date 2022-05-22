@@ -25,11 +25,13 @@ DHT dht(DHTPIN, DHTTYPE);
 U8G2_SH1106_128X64_NONAME_F_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 
 // the frequence for checking the temp
-#define timeDelay 5000
+#define timeDelay 3000
 // temp for turn the fans on
-float maxTemp = 30;
+float maxTemp = 25;
 // temp for turn the fans off
-float minTemp = 25;
+float minTemp = 20;
+// indicator of is fan is on between max and min Temp
+int   hasFanOn = 0;
 
 // prepare the settings for the display
 void displayPrepare() {
@@ -59,7 +61,6 @@ void loop() {
   
   // Wait a few seconds to aloow sensor to stablize
   delay(timeDelay);
- 
   display.drawStr(0, 0, "Temperatur(C):");
   display.drawStr(0, 15, "Humidity(%):");
   display.drawStr(0, 30, "Fans status:");
@@ -74,14 +75,21 @@ void loop() {
     // turn on the relay
     digitalWrite(FANPIN, LOW);
     display.drawStr(100, 30, "ON");
+    hasFanOn = 1;
   }
   else if (temp <= minTemp) {
     // turn off the relay
     digitalWrite(FANPIN, HIGH);
     display.drawStr(100, 30, "OFF");
+    hasFanOn = 0;
   }
   else {
-    display.drawStr(100, 30, "ON");
+    if (hasFanOn == 0) {
+      display.drawStr(100, 30, "OFF");
+    }
+    else {
+      display.drawStr(100, 30, "ON");
+    }
   }
   display.sendBuffer();
   delay(timeDelay);
