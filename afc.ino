@@ -27,9 +27,9 @@ U8G2_SH1106_128X64_NONAME_F_HW_I2C display(U8G2_R0, U8X8_PIN_NONE);
 // the frequence for checking the temp
 #define timeDelay 3000
 // temp for turn the fans on
-float maxTemp = 25;
+float maxTemp = 28;
 // temp for turn the fans off
-float minTemp = 20;
+float minTemp = 24;
 // indicator of is fan is on between max and min Temp
 int   hasFanOn = 0;
 
